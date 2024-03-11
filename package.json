@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "cors": "node node_modules/cors-anywhere/server.js",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "cors-anywhere": "^0.4.4",
     "nuxt": "^3.10.3",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
