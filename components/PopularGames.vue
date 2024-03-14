@@ -1,12 +1,15 @@
 <template>
     <div>
-        <div class="card-slider">
+        <div class="card-slider overflow-x-scroll whitespace-nowrap">
             <span v-for="item, index in onlyFirstFive" :key="index">
-                <img :src="item.cover.url" :alt="item.name" class="label"/>
+                <div class="inline-block shadow-md w-44">
+                    <img :src="`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`" :alt="item.name" class="label" @click="goGamePage(item)"/>
+                    <div class="p-6">
+                        <h6 class="card-text">{{ item.name }}</h6>
+                    </div>
+                </div>
             </span>
-
         </div>
-
     </div>
 </template>
 
@@ -21,8 +24,13 @@ const props = defineProps({
 const { popularGames } = toRefs(props)
 
 const onlyFirstFive = computed(() => {
-    return popularGames.value
+    return popularGames.value.slice(0, 9)
 })
+
+const router = useRouter()
+const goGamePage = (game) => {
+    router.push(`games/${game.id}`)
+}
 </script>
 
 <style scoped>
@@ -31,11 +39,21 @@ const onlyFirstFive = computed(() => {
     text-align: center;
 }
 
+.card-text {
+    font-weight: 700;
+    max-width: 30;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: start;
+    font-size: 13px;
+}
+
 .label {
-    position: relative;
-    margin: 0 -35px;
+    justify-self: top;
+    margin: 0 0;
     display: inline-block;
-    width: 150px;
+    width: 130px;
     height: 200px;
     border-radius: 5px;
     box-shadow: 0 10px 6px -6px #777;
@@ -45,9 +63,9 @@ const onlyFirstFive = computed(() => {
     transition: .3s;
 }
 .label:hover {
-    margin: 0 50px;
     -webkit-transform: none;
     transform: none;
+    cursor: pointer;
 }
 
 </style>
