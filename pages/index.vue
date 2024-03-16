@@ -54,8 +54,8 @@ async function getData() {
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'Accept': 'application/json',
-      'Client-ID': 'fk89xufput49xlo33bczfy5od2ckmp',
-      'Authorization': 'Bearer fnntyrlrlsa6i4dqpafy8cmw5y89zh',
+      'Client-ID': '',
+      'Authorization': '',
     },
     body: "fields name,rating,cover.image_id; sort rating_count desc; limit 30;"
 })
