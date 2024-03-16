@@ -73,3 +73,10 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## CORS Anywhere
+To run cors-anywhere use command:
+
+```bash
+npm run cors
+```
