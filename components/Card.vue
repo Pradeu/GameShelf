@@ -6,8 +6,14 @@
         <div class="content pl-2">
             <slot name="content"></slot>
         </div>
-        <div class="platforms pl-2 pb-4">
-            <slot name="platforms"></slot>
+        <div class="score pl-2 pb-4">
+            <slot name="score"></slot>
         </div>
     </div>
 </template>
+
+<script setup>
+
+
+
+</script>

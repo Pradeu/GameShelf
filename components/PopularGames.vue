@@ -29,7 +29,7 @@ const onlyFirstFive = computed(() => {
 
 const router = useRouter()
 const goGamePage = (game) => {
-    router.push(`games/${game.id}`)
+    router.push(`games/id/${game.id}`)
 }
 </script>
 
