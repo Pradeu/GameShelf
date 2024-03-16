@@ -31,8 +31,9 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onMounted } from 'vue';
+import { onBeforeMount } from 'vue';
 import PopularGames from '~/components/PopularGames.vue';
+import { Client_ID, Authorization_Token } from '~/assets/config';
 
 const popularGames = ref([]);
 
@@ -54,8 +55,8 @@ async function getData() {
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'Accept': 'application/json',
-      'Client-ID': '',
-      'Authorization': '',
+      'Client-ID': `${Client_ID}`,
+      'Authorization': `${Authorization_Token}`,
     },
     body: "fields name,rating,cover.image_id; sort rating_count desc; limit 30;"
 })

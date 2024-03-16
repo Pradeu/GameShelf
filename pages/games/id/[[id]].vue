@@ -44,6 +44,7 @@
 <script setup>
 const router = useRoute()
 const gameData = ref([])
+import { Client_ID, Authorization_Token } from '~/assets/config';
 
 
 onBeforeMount(() =>{
@@ -58,8 +59,8 @@ async function getData() {
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'Accept': 'application/json',
-      'Client-ID': '',
-      'Authorization': '',
+      'Client-ID': `${Client_ID}`,
+      'Authorization': `${Authorization_Token}`,
     },
     body: `fields name,rating,cover.image_id,genres.name,platforms.name,storyline; where id=${router.params.id};`
 })

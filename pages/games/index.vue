@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-
+import { Client_ID, Authorization_Token } from '~/assets/config';
 
 const allGames = ref([]);
 
@@ -46,8 +46,8 @@ async function getData() {
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'Accept': 'application/json',
-      'Client-ID': '',
-      'Authorization': '',
+      'Client-ID': `${Client_ID}`,
+      'Authorization': `${Authorization_Token}`,
     },
     body: "fields name,rating,cover.image_id; sort rating desc; limit 100;"
 })
