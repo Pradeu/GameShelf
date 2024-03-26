@@ -3,7 +3,7 @@
     <div class="flex justify-center w-15 font-sans hover:font-bold">Страница игр</div>
     <div class="max-w-5xl shadow-md m-auto min-h-screen pt-3">
         <div class="h-10 w-full bg-slate-500">
-            <h1 class="text-2xl px-4 text-white font-bold">Games catalog</h1>
+            <h1 class="text-2xl px-4 text-white font-bold">Каталог игр</h1>
         </div>
         <div class="gamesCatalog flex flex-wrap justify-center">
                     <Card v-for="game in allGames" :key="game.id" class="mx-auto" @click="goGamePage(game)">
@@ -14,7 +14,7 @@
                             <h2 class="font-bold">{{ game.name }}</h2>
                         </template>
                         <template #score>
-                            <p>Score: {{ Math.trunc(game.rating) }}</p>
+                            <p>Баллы: {{ Math.trunc(game.rating) }}</p>
                         </template>
                     </Card>
                 </div>

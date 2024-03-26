@@ -4,13 +4,13 @@
         <div class="max-w-5xl shadow-md m-auto min-h-screen pt-3">
             <div class="px-2"><div class="popularGames">
                 <div class=" h-10 w-full bg-slate-700">
-                    <h1 class="text-2xl px-4 text-white font-bold">Popular games</h1>
+                    <h1 class="text-2xl px-4 text-white font-bold">Популярные игры</h1>
                 </div>
                 <PopularGames :popularGames="popularGames"/>
             </div>
             <div>
                 <div class="h-10 w-full bg-slate-600">
-                    <h1 class="text-2xl px-4 text-white font-bold">Most rated games</h1>
+                    <h1 class="text-2xl px-4 text-white font-bold">Самые рейтинговые игры</h1>
                 </div>
                 <div class="mostRatings flex flex-wrap justify">
                     <Card v-for="game in popularGames" :key="game.id" class="mx-auto" @click="goGamePage(game)">
@@ -21,7 +21,7 @@
                             <h2 class="font-bold">{{ game.name }}</h2>
                         </template>
                         <template #score>
-                            <p>Score: {{ Math.trunc(game.rating) }}</p>
+                            <p>Баллы: {{ Math.trunc(game.rating) }}</p>
                         </template>
                     </Card>
                 </div>

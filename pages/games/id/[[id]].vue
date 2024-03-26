@@ -9,26 +9,24 @@
                             <img :src="`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`" height="266" :alt="game.name"/>
                         </div>
                         <h2 class="font-bold">{{ game.name }}</h2>
-                        <span class="gameScore">Score: {{ Math.trunc(game.rating) }}</span>
+                        <span class="gameScore">Баллы: {{ Math.trunc(game.rating) }}</span>
                         <div>
-                            Genres:
+                            Жанры:
                             <span v-for="(genre, index) in game.genres" :key="index"> 
                             {{ genre.name }}<span v-if="index !== game.genres.length-1">, </span>
                             </span>
-                    </div>
-
+                        </div>
                         <div>
-                            Platforms: 
+                            Платформы: 
                             <span v-for="(platform, index) in game.platforms" :key="index">
                             {{ platform.name }}<span v-if="index !== game.platforms.length-1">, </span> 
                             </span>
                         </div>
-
                     </template>
                 </Card>
             </div>
             <div class="storyline">
-                    <h3 class="font-semibold">Storyline:</h3>
+                    <h3 class="font-semibold">Сюжет:</h3>
                     <hr>
                     <Card class="min-w-full" v-for="game in gameData">
                         <template #content>
