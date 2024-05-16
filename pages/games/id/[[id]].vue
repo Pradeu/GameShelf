@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center bg-gray-300">
         <NuxtLayout/>
         <div v-if="gameData">
             <div class="flex justify-center">
