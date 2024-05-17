@@ -45,16 +45,21 @@
 </template>
 
 <script setup>
-import { onBeforeMount } from 'vue';
+import { onBeforeMount , onMounted, ref} from 'vue';
+import { userStore } from '~/stores/index.js';
 import PopularGames from '~/components/PopularGames.vue';
 import { Client_ID, Authorization_Token } from '~/assets/config';
-
+const useStore = userStore();
 const popularGames = ref([]);
+const user = ref([]);
 
 onBeforeMount(() =>{
     getData()
 })
 
+onMounted(() =>{
+    getUser()
+})
 
 
 const router = useRouter()
@@ -86,6 +91,29 @@ async function getData() {
   });
 };
 
+async function getUser() {
+    fetch(
+        'http://localhost:5109/User/jwtuser',
+        {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include'
+        }
+    )
+    .then(async response => {
+        const data = await response.json();
+        console.log(data);
+        user.value = data;
+        if (response.status != 401){
+        await useStore.setAuth(true);
+    }
+        return user;
+    })
+    .catch(async err => {
+        console.error(err);
+        await useStore.setAuth(false);
+    })
+}
 </script>
 
 <style scoped>
