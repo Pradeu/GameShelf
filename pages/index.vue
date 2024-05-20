@@ -1,7 +1,7 @@
 <template>
     <NuxtLayout/>
     <section class="bg-gray-300">
-        <div class="flex justify-center w-15 font-sans hover:font-bold">Главная страница</div>
+        <div class="flex justify-center w-15 font-sans hover:font-bold">{{ user.name }}</div>
             <div class="max-w-5xl shadow-md m-auto min-h-screen pt-3">
                 <div class="px-2"><div class="popularGames">
                     <div class=" h-10 w-full bg-slate-700">
@@ -104,14 +104,10 @@ async function getUser() {
         const data = await response.json();
         console.log(data);
         user.value = data;
-        if (response.status != 401){
-        await useStore.setAuth(true);
-    }
         return user;
     })
-    .catch(async err => {
+    .catch(err => {
         console.error(err);
-        await useStore.setAuth(false);
     })
 }
 </script>
