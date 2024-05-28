@@ -3,10 +3,10 @@
         <div class="image overflow-hidden">
             <slot name="image"></slot>
         </div>
-        <div class="content pl-2">
+        <div class="content pl-2 border-b-2 border-gray-400 mx-2">
             <slot name="content"></slot>
         </div>
-        <div class="score pl-1 pb-4">
+        <div class="score pl-2 pb-4 ">
             <slot name="score"></slot>
         </div>
     </div>
