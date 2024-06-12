@@ -14,8 +14,11 @@
                     <NuxtLink to="/games" class="text-white hover:font-semibold">Игры</NuxtLink>
                 </li>
                 <li class="pr-4">
-                    <NuxtLink to="/about" class="text-white hover:font-semibold">О нас</NuxtLink>
+                    <NuxtLink to="/stats" class="text-white hover:font-semibold">Статистика</NuxtLink>
                 </li>
+                <!-- <li class="pr-4">
+                    <NuxtLink to="/about" class="text-white hover:font-semibold">О нас</NuxtLink>
+                </li> -->
             </ul>
         </div>
         <div class="flex-grow">

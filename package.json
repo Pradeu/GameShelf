@@ -11,17 +11,21 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@canvasjs/vue-charts": "^1.0.4",
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.6.7",
+    "collect.js": "^4.36.1",
     "cors-anywhere": "^0.4.4",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
+    "v-google-translate": "^1.0.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@types/canvasjs": "^1.9.11",
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
