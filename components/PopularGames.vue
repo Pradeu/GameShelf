@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="card-slider overflow-x-scroll whitespace-nowrap">
-            <span v-for="item, index in onlyFirstFive" :key="index">
+            <span v-for="item, index in sortedGames" :key="index">
                 <div class="inline-block shadow-md w-44">
-                    <img :src="`/game_covers/${item.id}.webp`" :alt="item.name" class="label" @click="goGamePage(item)"/>
+                    <img :src="`/game_covers/${item.id}.jpg`" :alt="item.name" class="label" @click="navigateTo(`games/id/${game.id}`)"/>
                     <div class="p-6">
                         <h6 class="card-text">{{ item.name }}</h6>
                     </div>
@@ -23,20 +23,16 @@ const props = defineProps({
 
 const { popularGames } = toRefs(props)
 
-const onlyFirstFive = computed(() => {
+const sortedGames = computed(() => {
+    console.log(popularGames.value)
     popularGames.value.sort((a,b) => {
-        const diff = a.score - b.score;
+        const diff = a.scoresCount - b.scoresCount;
         if(diff === 0) return 0;
         const sign = Math.abs(diff) / diff;
         return -sign
     })
     return popularGames.value
 })
-
-const router = useRouter()
-const goGamePage = (game) => {
-    router.push(`/games/id/${game.id}`)
-}
 </script>
 
 <style scoped>

@@ -38,18 +38,9 @@
                 </div>
             </div>
             <div class="flex pt-3 ms-4 me-10">
-                <!-- <div class="w-fit">
-                    <div class="avatar-wrapper">
-                        <label for="uploadImage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Выбрать аватарку</label>
-                        <input type="file" v-if="$route.params.id == useStore.user.id" id="uploadImage" accept="image/gif, image/jpeg, image/png, Image/JPG"/>
-                    </div>
-                <div class="h-4"></div>
-                <button class="bg-slate-600 hover:bg-slate-700 text-white font-bold px-4 rounded h-10">Список игр</button>
-                </div> -->
                 <div class="flex-grow"></div>
                 <div class="w-fit">
                     <div>Количество игр в списке: {{ allGames.length }}</div>
-                    <!-- <div>Количество оценок: </div> -->
                 </div>
             </div>
             <div class="mx-4 max-w-5xl flex border-t-2 border-black">
@@ -85,12 +76,12 @@
                         </button>
                     </div>
                 </div> 
-                <div class="flex-col ">
+                <div class="flex-col">
                     <div class="pl-2 mt-1">Список игр</div>
                     <div class="flex flex-wrap">
                     <Card v-for="game in filteredGames" :key="game.id" class="" @click="navigateTo(`/games/id/${game.gameId}`)">
                         <template #image>
-                            <img :src="`/game_covers/${game.gameId}.webp`" height="266" :alt="game.name" class="cursor-pointer"/>
+                            <img :src="`/game_covers/${game.gameId}.jpg`" height="266" :alt="game.name" class="cursor-pointer"/>
                         </template>
                         <template #content>
                             <h2 class="font-bold h-12 overflow-hidden">{{ game.game.name }}</h2>

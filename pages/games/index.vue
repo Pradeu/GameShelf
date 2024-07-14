@@ -60,29 +60,4 @@ async function load(f) {
         console.error(err);
     });
 }
-
-// async function getData() {
-//    fetch(
-//   "http://localhost:8080/https://api.igdb.com/v4/games",
-//   { method: 'POST',
-//     headers: {
-//       'X-Requested-With': 'XMLHttpRequest',
-//       'Accept': 'application/json',
-//       'Client-ID': `${Client_ID}`,
-//       'Authorization': `${Authorization_Token}`,
-//     },
-//     body: "fields name,rating,cover.image_id; sort rating desc; limit 100;"
-// })
-//   .then(async response => {
-//         const data = await response.json();
-//       console.log(data);
-//       allGames.value = data;
-//       return allGames;    
-//   })
-//   .catch(err => {
-//       console.error(err);
-//   });
-// };
-
-
 </script>

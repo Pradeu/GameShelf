@@ -14,9 +14,9 @@
                         <h1 class="text-2xl px-4 text-white font-bold">Самые рейтинговые игры</h1>
                     </div>
                     <div class="mostRatings flex flex-wrap justify">
-                        <Card v-for="game in popularGames" :key="game.id" class="mx-auto" @click="navigateTo(`games/id/${game.id}`)">
+                        <Card v-for="game in bestGames" :key="game.id" class="mx-auto" @click="navigateTo(`games/id/${game.id}`)">
                             <template #image>
-                                <img :src="`/game_covers/${game.id}.webp`" height="266" :alt="game.name" class="cursor-pointer"/>
+                                <img :src="`/game_covers/${game.id}.jpg`" height="266" :alt="game.name" class="cursor-pointer"/>
                             </template>
                             <template #content>
                                 <h2 class="font-bold h-12">{{ game.name }}</h2>
@@ -54,17 +54,28 @@ onBeforeMount(() =>{
     getData()
 })
 const popularGames = ref([]);
+const bestGames = ref([]);
 
 async function getData() {
     fetch(
-        `http://localhost:5108/Game/query`,
+        `http://localhost:5108/Game/query?sort=scoresCountDesc`,
         {
             method: 'GET'
         })
     .then(async response => {
     const content = await response.json();
     popularGames.value = content.data;
-    return popularGames;
+    console.log(popularGames.value)
+    return fetch(
+        `http://localhost:5108/Game/query?sort=scoreDesc`,
+        {
+            method: 'GET'
+        })
+        .then(async response => {
+        const content = await response.json();
+        bestGames.value = content.data;
+        console.log(bestGames.value)
+        })
     })
     .catch(err => {
         console.error(err);

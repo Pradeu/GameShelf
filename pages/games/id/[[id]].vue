@@ -4,8 +4,8 @@
         <div class="pt-6 m-auto max-w-5xl bg-gray-200 rounded-sm border-4 border-gray-200" v-if="gameData">
             <div class="mx-3">
                 <h2 class="font-bold text-5xl py-1.5 border-b-2 border-black">{{ gameData.name }}</h2>
-                <div class="flex pt-3">
-                    <img :src="`/game_covers/${gameData.id}.webp`" height="180" :alt="gameData.name"/>
+                <div class="flex pt-3" v-if="gameData.id">
+                    <img :src="`/game_covers/${gameData.id}.jpg`" height="180" :alt="gameData.name"/>
                     <div class="flex-grow mx-2 rounded-md border-2 border-slate-600 bg-gray-300">
                         <h3 class="font-semibold mx-2 pb-2">Информация:</h3>
                         <div class="mx-2">{{ gameData.description }}</div>
@@ -160,7 +160,7 @@
                 </div>
             </div>
         </div>
-        <div v-else class="font-bold">Now loading...</div>
+        <div v-else class="font-bold">Идет загрузка...</div>
     </div>
 </template>
 

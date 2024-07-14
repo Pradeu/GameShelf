@@ -21,8 +21,8 @@
     </form>
     <div class="gamesCatalog flex flex-wrap justify-center">
         <Card v-for="game in games" :key="game.id" class="mx-auto" @click="navigateTo(`games/id/${game.id}`)">
-            <template #image>
-                <img :src="`/game_covers/${game.id}.webp`" height="266" :alt="game.name" class="cursor-pointer"/>
+            <template #image class="">
+                <img :src="`/game_covers/${game.id}.jpg`"  height="266" :alt="game.name" class="cursor-pointer"/>
             </template>
             <template #content>
                 <h2 class="font-bold h-12 overflow-hidden">{{ game.name }}</h2>
